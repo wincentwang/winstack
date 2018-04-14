@@ -12,6 +12,7 @@
 
     <modules>
         <module>winstack-fragment</module>
+        <module>winstack-winapp</module>
     </modules>
 
 
