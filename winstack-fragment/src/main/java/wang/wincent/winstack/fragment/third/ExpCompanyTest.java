@@ -22,7 +22,7 @@ public class ExpCompanyTest {
 
 
     public static final String SHOWAPI_APPID="61601";
-    public static final String SHOWAPI_APPKEYSECRET="d9662c46bc954bcb939a90f47e1b42fd";
+    public static final String SHOWAPI_APPKEYSECRET="";
     public static final String SHOWAPI_EXPRESS_NAME="auto";//默认
 
 
