@@ -27,7 +27,6 @@ public class ExpCompanyTest {
 
 
     public static void main(String[] args) throws IOException {
-
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
