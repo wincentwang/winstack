@@ -1,16 +1,14 @@
 package wang.wincent.winstack.winapp.modules.sys.service.impl;
 
-import io.renren.common.utils.Constant;
-import io.renren.modules.sys.dao.SysMenuDao;
-import io.renren.modules.sys.entity.SysMenuEntity;
-import io.renren.modules.sys.service.SysMenuService;
-import io.renren.modules.sys.service.SysRoleMenuService;
-import io.renren.modules.sys.service.SysUserService;
-import io.renren.common.utils.Constant.MenuType;
-import org.apache.commons.lang.StringUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import wang.wincent.winstack.winapp.common.utils.Constant;
+import wang.wincent.winstack.winapp.modules.sys.dao.SysMenuDao;
+import wang.wincent.winstack.winapp.modules.sys.entity.SysMenuEntity;
+import wang.wincent.winstack.winapp.modules.sys.service.SysMenuService;
+import wang.wincent.winstack.winapp.modules.sys.service.SysUserService;
 
 import java.util.*;
 
@@ -115,7 +113,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<SysMenuEntity> subMenuList = new ArrayList<SysMenuEntity>();
 		
 		for(SysMenuEntity entity : menuList){
-			if(entity.getType() == MenuType.CATALOG.getValue()){//目录
+			if(entity.getType() == Constant.MenuType.CATALOG.getValue()){//目录
 				entity.setList(getMenuTreeList(queryListParentId(entity.getMenuId(), menuIdList), menuIdList));
 			}
 			subMenuList.add(entity);

@@ -1,10 +1,6 @@
 package wang.wincent.winstack.winapp.modules.job.service.impl;
 
-import io.renren.modules.job.dao.ScheduleJobDao;
-import io.renren.modules.job.entity.ScheduleJobEntity;
-import io.renren.modules.job.service.ScheduleJobService;
-import io.renren.common.utils.Constant.ScheduleStatus;
-import io.renren.modules.job.utils.ScheduleUtils;
+
 
 import java.util.Date;
 import java.util.HashMap;
@@ -18,6 +14,11 @@ import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import wang.wincent.winstack.winapp.common.utils.Constant;
+import wang.wincent.winstack.winapp.modules.job.dao.ScheduleJobDao;
+import wang.wincent.winstack.winapp.modules.job.entity.ScheduleJobEntity;
+import wang.wincent.winstack.winapp.modules.job.service.ScheduleJobService;
+import wang.wincent.winstack.winapp.modules.job.utils.ScheduleUtils;
 
 @Service("scheduleJobService")
 public class ScheduleJobServiceImpl implements ScheduleJobService {
@@ -62,7 +63,7 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
 	@Transactional
 	public void save(ScheduleJobEntity scheduleJob) {
 		scheduleJob.setCreateTime(new Date());
-		scheduleJob.setStatus(ScheduleStatus.NORMAL.getValue());
+		scheduleJob.setStatus(Constant.ScheduleStatus.NORMAL.getValue());
         schedulerJobDao.save(scheduleJob);
         
         ScheduleUtils.createScheduleJob(scheduler, scheduleJob);
@@ -110,7 +111,7 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
     		ScheduleUtils.pauseJob(scheduler, jobId);
     	}
         
-    	updateBatch(jobIds, ScheduleStatus.PAUSE.getValue());
+    	updateBatch(jobIds, Constant.ScheduleStatus.PAUSE.getValue());
     }
 
 	@Override
@@ -120,7 +121,7 @@ public class ScheduleJobServiceImpl implements ScheduleJobService {
     		ScheduleUtils.resumeJob(scheduler, jobId);
     	}
 
-    	updateBatch(jobIds, ScheduleStatus.NORMAL.getValue());
+    	updateBatch(jobIds, Constant.ScheduleStatus.NORMAL.getValue());
     }
     
 }

@@ -43,14 +43,11 @@ public class SysUserController extends AbstractController {
 		if(getUserId() != Constant.SUPER_ADMIN){
 			params.put("createUserId", getUserId());
 		}
-		
 		//查询列表数据
 		Query query = new Query(params);
 		List<SysUserEntity> userList = sysUserService.queryList(query);
 		int total = sysUserService.queryTotal(query);
-		
 		PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
-		
 		return R.ok().put("page", pageUtil);
 	}
 	
@@ -91,11 +88,9 @@ public class SysUserController extends AbstractController {
 	@RequiresPermissions("sys:user:info")
 	public R info(@PathVariable("userId") Long userId){
 		SysUserEntity user = sysUserService.queryObject(userId);
-		
 		//获取用户所属的角色列表
 		List<Long> roleIdList = sysUserRoleService.queryRoleIdList(userId);
 		user.setRoleIdList(roleIdList);
-		
 		return R.ok().put("user", user);
 	}
 	
@@ -107,10 +102,8 @@ public class SysUserController extends AbstractController {
 	@RequiresPermissions("sys:user:save")
 	public R save(@RequestBody SysUserEntity user){
 		ValidatorUtils.validateEntity(user, AddGroup.class);
-		
 		user.setCreateUserId(getUserId());
 		sysUserService.save(user);
-		
 		return R.ok();
 	}
 	
@@ -122,10 +115,8 @@ public class SysUserController extends AbstractController {
 	@RequiresPermissions("sys:user:update")
 	public R update(@RequestBody SysUserEntity user){
 		ValidatorUtils.validateEntity(user, UpdateGroup.class);
-		
 		user.setCreateUserId(getUserId());
 		sysUserService.update(user);
-		
 		return R.ok();
 	}
 	
@@ -139,13 +130,10 @@ public class SysUserController extends AbstractController {
 		if(ArrayUtils.contains(userIds, 1L)){
 			return R.error("系统管理员不能删除");
 		}
-		
 		if(ArrayUtils.contains(userIds, getUserId())){
 			return R.error("当前用户不能删除");
 		}
-		
 		sysUserService.deleteBatch(userIds);
-		
 		return R.ok();
 	}
 }

@@ -1,25 +1,22 @@
 package wang.wincent.winstack.winapp.modules.sys.controller;
 
-import io.renren.common.annotation.SysLog;
-import io.renren.modules.sys.entity.SysConfigEntity;
-import io.renren.modules.sys.service.SysConfigService;
-import io.renren.common.utils.PageUtils;
-import io.renren.common.utils.Query;
-import io.renren.common.utils.R;
-import io.renren.common.validator.ValidatorUtils;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import wang.wincent.winstack.winapp.common.annotation.SysLog;
+import wang.wincent.winstack.winapp.common.utils.PageUtils;
+import wang.wincent.winstack.winapp.common.utils.Query;
+import wang.wincent.winstack.winapp.common.utils.R;
+import wang.wincent.winstack.winapp.common.validator.ValidatorUtils;
+import wang.wincent.winstack.winapp.modules.sys.entity.SysConfigEntity;
+import wang.wincent.winstack.winapp.modules.sys.service.SysConfigService;
 
 import java.util.List;
 import java.util.Map;
 
 /**
  * 系统参数信息
- * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年12月4日 下午6:55:53
  */
 @RestController
 @RequestMapping("/sys/config")
@@ -39,7 +36,6 @@ public class SysConfigController extends AbstractController {
 		int total = sysConfigService.queryTotal(query);
 		
 		PageUtils pageUtil = new PageUtils(configList, total, query.getLimit(), query.getPage());
-		
 		return R.ok().put("page", pageUtil);
 	}
 	
@@ -63,9 +59,7 @@ public class SysConfigController extends AbstractController {
 	@RequiresPermissions("sys:config:save")
 	public R save(@RequestBody SysConfigEntity config){
 		ValidatorUtils.validateEntity(config);
-
 		sysConfigService.save(config);
-		
 		return R.ok();
 	}
 	
@@ -77,9 +71,7 @@ public class SysConfigController extends AbstractController {
 	@RequiresPermissions("sys:config:update")
 	public R update(@RequestBody SysConfigEntity config){
 		ValidatorUtils.validateEntity(config);
-		
 		sysConfigService.update(config);
-		
 		return R.ok();
 	}
 	
@@ -91,7 +83,6 @@ public class SysConfigController extends AbstractController {
 	@RequiresPermissions("sys:config:delete")
 	public R delete(@RequestBody Long[] ids){
 		sysConfigService.deleteBatch(ids);
-		
 		return R.ok();
 	}
 

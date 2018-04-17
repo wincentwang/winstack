@@ -1,8 +1,6 @@
 package wang.wincent.winstack.winapp.datasources.aspect;
 
-import io.renren.datasources.DataSourceNames;
-import io.renren.datasources.DynamicDataSource;
-import io.renren.datasources.annotation.DataSource;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,21 +10,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
+import wang.wincent.winstack.winapp.datasources.DataSourceNames;
+import wang.wincent.winstack.winapp.datasources.DynamicDataSource;
+import wang.wincent.winstack.winapp.datasources.annotation.DataSource;
 
 import java.lang.reflect.Method;
 
 /**
  * 多数据源，切面处理类
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017/9/16 22:20
  */
 @Aspect
 @Component
 public class DataSourceAspect implements Ordered {
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("@annotation(io.renren.datasources.annotation.DataSource)")
+    @Pointcut("@annotation(wang.wincent.winstack.winapp.datasources.annotation.DataSource)")
     public void dataSourcePointCut() {
 
     }
