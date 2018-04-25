@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.waterelephant.mallapp.activity.repository.MallCouponRecordDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.waterelephant.mallapp.activity.entity.MallCouponRecordDetail" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="coupon_record_id" property="couponRecordId" jdbcType="BIGINT" />
+    <result column="coupon_detail_id" property="couponDetailId" jdbcType="BIGINT" />
+    <result column="borrow_id" property="borrowId" jdbcType="BIGINT" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="bill_id" property="billId" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="borrower_id" property="borrowerId" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="coupon_id" property="couponId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, coupon_record_id, coupon_detail_id, borrow_id, phone, real_name, bill_id, status, 
+    amount, count, start_time, end_time, create_time, update_time, remark, type, borrower_id, 
+    activity_id, coupon_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mall_coupon_record_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from mall_coupon_record_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.waterelephant.mallapp.activity.entity.MallCouponRecordDetail" >
+    insert into mall_coupon_record_detail (id, coupon_record_id, coupon_detail_id, 
+      borrow_id, phone, real_name, 
+      bill_id, status, amount, 
+      count, start_time, end_time, 
+      create_time, update_time, remark, 
+      type, borrower_id, activity_id, 
+      coupon_id)
+    values (#{id,jdbcType=BIGINT}, #{couponRecordId,jdbcType=BIGINT}, #{couponDetailId,jdbcType=BIGINT}, 
+      #{borrowId,jdbcType=BIGINT}, #{phone,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{billId,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, #{amount,jdbcType=DECIMAL}, 
+      #{count,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{type,jdbcType=TINYINT}, #{borrowerId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, 
+      #{couponId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.waterelephant.mallapp.activity.entity.MallCouponRecordDetail" >
+    insert into mall_coupon_record_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="couponRecordId != null" >
+        coupon_record_id,
+      </if>
+      <if test="couponDetailId != null" >
+        coupon_detail_id,
+      </if>
+      <if test="borrowId != null" >
+        borrow_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="billId != null" >
+        bill_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="borrowerId != null" >
+        borrower_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="couponId != null" >
+        coupon_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponRecordId != null" >
+        #{couponRecordId,jdbcType=BIGINT},
+      </if>
+      <if test="couponDetailId != null" >
+        #{couponDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="borrowId != null" >
+        #{borrowId,jdbcType=BIGINT},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="billId != null" >
+        #{billId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="borrowerId != null" >
+        #{borrowerId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null" >
+        #{couponId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.waterelephant.mallapp.activity.entity.MallCouponRecordDetail" >
+    update mall_coupon_record_detail
+    <set >
+      <if test="couponRecordId != null" >
+        coupon_record_id = #{couponRecordId,jdbcType=BIGINT},
+      </if>
+      <if test="couponDetailId != null" >
+        coupon_detail_id = #{couponDetailId,jdbcType=BIGINT},
+      </if>
+      <if test="borrowId != null" >
+        borrow_id = #{borrowId,jdbcType=BIGINT},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="billId != null" >
+        bill_id = #{billId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="borrowerId != null" >
+        borrower_id = #{borrowerId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null" >
+        coupon_id = #{couponId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.waterelephant.mallapp.activity.entity.MallCouponRecordDetail" >
+    update mall_coupon_record_detail
+    set coupon_record_id = #{couponRecordId,jdbcType=BIGINT},
+      coupon_detail_id = #{couponDetailId,jdbcType=BIGINT},
+      borrow_id = #{borrowId,jdbcType=BIGINT},
+      phone = #{phone,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      bill_id = #{billId,jdbcType=BIGINT},
+      status = #{status,jdbcType=TINYINT},
+      amount = #{amount,jdbcType=DECIMAL},
+      count = #{count,jdbcType=INTEGER},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      borrower_id = #{borrowerId,jdbcType=BIGINT},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      coupon_id = #{couponId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
