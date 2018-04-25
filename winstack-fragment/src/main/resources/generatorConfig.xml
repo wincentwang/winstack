@@ -7,18 +7,14 @@
     <!--<classPathEntry  location="mysql-connector-java-5.1.37-bin.jar"/>-->
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
-
         <commentGenerator type="wang.wincent.winstack.fragment.mybatis.generator.MyCommentGenerator">
             <property name="javaFileEncoding" value="UTF-8"/>
             <property name="suppressAllComments" value="false" />
             <property name="suppressDate" value="true" />
         </commentGenerator>
 
-
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/winapp" userId="root" password="root"></jdbcConnection>
-
-
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
