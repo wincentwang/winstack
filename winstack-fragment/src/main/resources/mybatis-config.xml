@@ -20,6 +20,8 @@
         <mapper resource="MallCouponMapper.xml"/>
     </mappers>
 
+    <!--pagehelper plugin-->
+    <!--
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper">
             <property name="dialect" value="mysql"/>
@@ -31,5 +33,6 @@
             <property name="returnPageInfo" value="none"/>
         </plugin>
     </plugins>
+    -->
 
 </configuration>
