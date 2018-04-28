@@ -14,7 +14,6 @@
         </commentGenerator>
 
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://106.14.238.126:3306/beadwalletmall" userId="root" password="beadwallet.mysql@2016"></jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
@@ -38,7 +37,6 @@
 
         <!--生成对应表及类名-->
         <!--<table tableName="mall_coupon_record_detail" domainObjectName="MallCouponRecordDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="mall_activity_tag" domainObjectName="MallActivityTag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
 
 
