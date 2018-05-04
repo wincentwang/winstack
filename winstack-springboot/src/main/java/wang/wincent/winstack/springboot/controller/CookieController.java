@@ -19,6 +19,9 @@ public class CookieController {
 
     @RequestMapping("/test/cookie")
     public String cookie(@RequestParam("browser") String browser, HttpServletRequest request, HttpSession session) {
+
+        String id = session.getId();
+        System.out.println(id);
         //取出session中的browser
         Object sessionBrowser = session.getAttribute("browser");
         if (sessionBrowser == null) {

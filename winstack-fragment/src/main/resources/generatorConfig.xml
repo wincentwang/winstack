@@ -14,6 +14,7 @@
         </commentGenerator>
 
         <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/testdb" userId="root" password="root"></jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
@@ -34,10 +35,8 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-
         <!--生成对应表及类名-->
-        <!--<table tableName="mall_coupon_record_detail" domainObjectName="MallCouponRecordDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-
+        <table tableName="tb_user" domainObjectName="TbUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
 
     </context>

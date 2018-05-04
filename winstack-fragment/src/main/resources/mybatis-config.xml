@@ -4,35 +4,35 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
+    <!--pagehelper plugin-->
+
+    <settings>
+        <setting name="logImpl" value="LOG4J" />
+    </settings>
+    
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://106.14.238.126:3306/beadwalletmall"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/testdb"/>
                 <property name="username" value="root"/>
-                <property name="password" value="beadwallet.mysql@2016"/>
+                <property name="password" value="root"/>
             </dataSource>
         </environment>
     </environments>
 
-    <mappers>
-        <mapper resource="MallCouponMapper.xml"/>
-    </mappers>
 
-    <!--pagehelper plugin-->
-    <!--
-    <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <property name="dialect" value="mysql"/>
-            <property name="offsetAsPageNum" value="false"/>
-            <property name="rowBoundsWithCount" value="false"/>
-            <property name="pageSizeZero" value="true"/>
-            <property name="reasonable" value="false"/>
-            <property name="supportMethodsArguments" value="false"/>
-            <property name="returnPageInfo" value="none"/>
-        </plugin>
-    </plugins>
-    -->
+    <mappers>
+        <mapper resource="TbUserMapper.xml"/>
+    </mappers>
 
 </configuration>
